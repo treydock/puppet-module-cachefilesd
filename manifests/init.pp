@@ -120,9 +120,9 @@ class cachefilesd (
 
   if $manage_service {
     service { 'cachefilesd':
-      ensure  => $service_ensure,
-      enable  => $service_enable,
-      name    => $service_name,
+      ensure => $service_ensure,
+      enable => $service_enable,
+      name   => $service_name,
     }
   }
 
