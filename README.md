@@ -33,3 +33,11 @@ Only tested on RHEL 6 and RHEL 7.
 ## Development
 
 This module uses PDK for testing.
+
+## Release Process
+
+1. Update metadata.json version
+1. Generate REFERENCE.md: `bundle exec rake strings:generate:reference`
+1. Update CHANGELOG.md: `bundle exec rake changelog`
+1. Commit changes, eg `git commit -a -m "Prep release 0.1.0"`
+1. Tag, eg: `git tag 0.1.0`
