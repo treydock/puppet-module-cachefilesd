@@ -2,34 +2,43 @@
   "name": "treydock-cachefilesd",
   "version": "0.1.0",
   "author": "treydock",
-  "summary": "",
+  "summary": "cachefilesd Puppet module",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "git://github.com/treydock/puppet-module-cachefilesd.git",
+  "project_page": "https://github.com/treydock/puppet-module-cachefilesd",
+  "issues_url": "https://github.com/treydock/puppet-module-cachefilesd/issues",
   "dependencies": [
-    { "name": "puppetlabs/stdlib", "version_requirement": ">= 4.13.1 <6.0.0" }
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.13.1 <6.0.0"
+    }
   ],
   "operatingsystem_support": [
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
+        "6",
         "7"
       ]
     },
     {
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
+        "6",
         "7"
       ]
     },
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
+        "6",
         "7"
       ]
     },
     {
       "operatingsystem": "Scientific",
       "operatingsystemrelease": [
+        "6",
         "7"
       ]
     }
