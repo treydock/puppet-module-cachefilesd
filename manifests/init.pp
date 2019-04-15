@@ -4,6 +4,41 @@
 #
 # @example
 #   include cachefilesd
+#
+# @param package_name
+#   Package name for cachefilesd
+# @param package_ensure
+#   Package ensure property
+# @param dir
+#   cachefilesd `dir` config option
+# @param cache_tag
+#   cachefilesd `tag` config option
+# @param brun
+#   cachefilesd `brun` config option
+# @param bcull
+#   cachefilesd `bcull` config option
+# @param bstop
+#   cachefilesd `bstop` config option
+# @param frun
+#   cachefilesd `frun` config option
+# @param fcull
+#   cachefilesd `fcull` config option
+# @param fstop
+#   cachefilesd `fstop` config option
+# @param secctx
+#   cachefilesd `secctx` config option
+# @param culltable
+#   cachefilesd `culltable` config option
+# @param nocull
+#   cachefilesd `nocull` config option
+# @param resume_thresholds
+#   cachefilesd `resume_thresholds` config option
+# @param service_name
+#   cachefilesd service name
+# @param service_ensure
+#   cachefilesd service ensure property
+# @param service_enable
+#   cachefilesd service enable property
 class cachefilesd (
   String[1] $package_name = 'cachefilesd',
   String[1] $package_ensure = 'installed',
