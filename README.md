@@ -41,3 +41,4 @@ This module uses PDK for testing.
 1. Update CHANGELOG.md: `bundle exec rake changelog`
 1. Commit changes, eg `git commit -a -m "Prep release 0.1.0"`
 1. Tag, eg: `git tag 0.1.0`
+1. Update GitHub pages: `bundle exec rake strings:gh_pages:update`
