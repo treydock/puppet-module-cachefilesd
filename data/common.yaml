@@ -1,2 +1,15 @@
 ---
-package_name: cachefilesd
+cachefilesd::package_name: cachefilesd
+cachefilesd::package_ensure: installed
+cachefilesd::dir: /var/cache/fscache
+cachefilesd::cache_tag: CacheFiles
+cachefilesd::brun: 10
+cachefilesd::bcull: 7
+cachefilesd::bstop: 3
+cachefilesd::frun: 10
+cachefilesd::fcull: 7
+cachefilesd::fstop: 3
+cachefilesd::secctx: system_u:system_r:cachefiles_kernel_t:s0
+cachefilesd::culltable: 12
+cachefilesd::nocull: false
+# cachefilesd::resume_thresholds
