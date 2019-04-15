@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: cachefilesd
+  
+    &mdash; Documentation by YARD 0.9.19
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "puppet_classes::cachefilesd";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (c)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">cachefilesd</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Puppet Class: cachefilesd</h1>
+<div class="box_info">
+  
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/init.pp
+    </dd>
+  </dl>
+</div>
+
+  <h2>Summary</h2>
+  Manage cachefilesd
+
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Manage cachefilesd</p>
+
+  </div>
+</div>
+
+
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_include'>include</span> <span class='id identifier rubyid_cachefilesd'>cachefilesd</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>manage_package</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Boolean that determines if package resource is managed.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>package_name</span>
+      
+      
+        <span class='type'>(<tt>String[1]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;cachefilesd&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Package name for cachefilesd</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>package_ensure</span>
+      
+      
+        <span class='type'>(<tt>String[1]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;installed&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Package ensure property</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>manage_config</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Boolean that determines if config is managed.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>config_path</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;/etc/cachefilesd.conf&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Path to cachefilesd.conf</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>manage_dir</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Booleans that determines if <code>dir</code> resource is managed.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dir</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;/var/cache/fscache&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd <code>dir</code> config option</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cache_tag</span>
+      
+      
+        <span class='type'>(<tt>Variant[String[1], Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;CacheFiles&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd <code>tag</code> config option</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>brun</span>
+      
+      
+        <span class='type'>(<tt>Integer[0,100]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd <code>brun</code> config option</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>bcull</span>
+      
+      
+        <span class='type'>(<tt>Integer[0,100]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>7</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd <code>bcull</code> config option</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>bstop</span>
+      
+      
+        <span class='type'>(<tt>Integer[0,100]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>3</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd <code>bstop</code> config option</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>frun</span>
+      
+      
+        <span class='type'>(<tt>Integer[0,100]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd <code>frun</code> config option</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>fcull</span>
+      
+      
+        <span class='type'>(<tt>Integer[0,100]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>7</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd <code>fcull</code> config option</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>fstop</span>
+      
+      
+        <span class='type'>(<tt>Integer[0,100]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>3</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd <code>fstop</code> config option</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>secctx</span>
+      
+      
+        <span class='type'>(<tt>String[1]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;system_u:system_r:cachefiles_kernel_t:s0&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd <code>secctx</code> config option</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>culltable</span>
+      
+      
+        <span class='type'>(<tt>Integer[12,20]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>12</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd <code>culltable</code> config option</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>nocull</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd <code>nocull</code> config option</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>resume_thresholds</span>
+      
+      
+        <span class='type'>(<tt>Optional[String[1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd <code>resume_thresholds</code> config option</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>manage_service</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Boolean that determines if cachefilesd service is managed.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_name</span>
+      
+      
+        <span class='type'>(<tt>String[1]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;cachefilesd&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd service name</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_ensure</span>
+      
+      
+        <span class='type'>(<tt>String[1]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;running&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd service ensure property</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_enable</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cachefilesd service enable property</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 52</span>
+
+class cachefilesd (
+  Boolean $manage_package = true,
+  String[1] $package_name = &#39;cachefilesd&#39;,
+  String[1] $package_ensure = &#39;installed&#39;,
+  Boolean $manage_config = true,
+  Stdlib::Absolutepath $config_path = &#39;/etc/cachefilesd.conf&#39;,
+  Boolean $manage_dir = true,
+  Stdlib::Absolutepath $dir = &#39;/var/cache/fscache&#39;,
+  Variant[String[1], Boolean] $cache_tag = &#39;CacheFiles&#39;,
+  Integer[0,100] $brun = 10,
+  Integer[0,100] $bcull = 7,
+  Integer[0,100] $bstop = 3,
+  Integer[0,100] $frun = 10,
+  Integer[0,100] $fcull = 7,
+  Integer[0,100] $fstop = 3,
+  String[1] $secctx = &#39;system_u:system_r:cachefiles_kernel_t:s0&#39;,
+  Integer[12,20] $culltable = 12,
+  Boolean $nocull = false,
+  Optional[String[1]] $resume_thresholds = undef,
+  Boolean $manage_service = true,
+  String[1] $service_name = &#39;cachefilesd&#39;,
+  String[1] $service_ensure = &#39;running&#39;,
+  Boolean $service_enable = true,
+) {
+
+  if $manage_package {
+    package { &#39;cachefilesd&#39;:
+      ensure =&gt; $package_ensure,
+      name   =&gt; $package_name,
+    }
+    if $manage_dir {
+      Package[&#39;cachefilesd&#39;] -&gt; File[$dir]
+    }
+    if $manage_config {
+      Package[&#39;cachefilesd&#39;] -&gt; File[&#39;cachefilesd.conf&#39;]
+    }
+    if $manage_service {
+      Package[&#39;cachefilesd&#39;] ~&gt; Service[&#39;cachefilesd&#39;]
+    }
+  }
+
+  if $manage_dir {
+    file { $dir:
+      ensure =&gt; &#39;directory&#39;,
+      owner  =&gt; &#39;root&#39;,
+      group  =&gt; &#39;root&#39;,
+      mode   =&gt; &#39;0755&#39;,
+    }
+    if $manage_service {
+      File[$dir] ~&gt; Service[&#39;cachefilesd&#39;]
+    }
+  }
+
+  if $manage_config {
+    file { &#39;cachefilesd.conf&#39;:
+      ensure  =&gt; &#39;file&#39;,
+      path    =&gt; $config_path,
+      owner   =&gt; &#39;root&#39;,
+      group   =&gt; &#39;root&#39;,
+      mode    =&gt; &#39;0644&#39;,
+      content =&gt; template(&#39;cachefilesd/cachefilesd.conf.erb&#39;),
+      require =&gt; Package[&#39;cachefilesd&#39;],
+      notify  =&gt; Service[&#39;cachefilesd&#39;],
+    }
+    if $manage_service {
+      File[&#39;cachefilesd.conf&#39;] ~&gt; Service[&#39;cachefilesd&#39;]
+    }
+  }
+
+  if $manage_service {
+    service { &#39;cachefilesd&#39;:
+      ensure =&gt; $service_ensure,
+      enable =&gt; $service_enable,
+      name   =&gt; $service_name,
+    }
+  }
+
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+     Generated by <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>.
+</div>
+
+    </div>
+  </body>
+</html>
