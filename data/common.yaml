@@ -1,6 +1,9 @@
 ---
+cachefilesd::manage_package: true
 cachefilesd::package_name: cachefilesd
 cachefilesd::package_ensure: installed
+cachefilesd::manage_config: true
+cachefilesd::config_path: /etc/cachefilesd.conf
 cachefilesd::manage_dir: true
 cachefilesd::dir: /var/cache/fscache
 cachefilesd::cache_tag: CacheFiles
@@ -14,3 +17,7 @@ cachefilesd::secctx: system_u:system_r:cachefiles_kernel_t:s0
 cachefilesd::culltable: 12
 cachefilesd::nocull: false
 # cachefilesd::resume_thresholds
+cachefilesd::manage_service: true
+cachefilesd::service_name: cachefilesd
+cachefilesd::service_ensure: running
+cachefilesd::service_enable: true
