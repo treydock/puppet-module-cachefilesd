@@ -9,6 +9,8 @@
 #   Package name for cachefilesd
 # @param package_ensure
 #   Package ensure property
+# @param manage_dir
+#   Booleans that determines if `dir` resource is managed.
 # @param dir
 #   cachefilesd `dir` config option
 # @param cache_tag
@@ -42,6 +44,7 @@
 class cachefilesd (
   String[1] $package_name = 'cachefilesd',
   String[1] $package_ensure = 'installed',
+  Boolean $manage_dir = true,
   Stdlib::Absolutepath $dir = '/var/cache/fscache',
   Variant[String[1], Boolean] $cache_tag = 'CacheFiles',
   Integer[0,100] $brun = 10,
@@ -62,6 +65,17 @@ class cachefilesd (
   package { 'cachefilesd':
     ensure => $package_ensure,
     name   => $package_name,
+  }
+
+  if $manage_dir {
+    file { $dir:
+      ensure  => 'directory',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0755',
+      require => Package['cachefilesd'],
+      notify  => Service['cachefilesd'],
+    }
   }
 
   file { '/etc/cachefilesd.conf':

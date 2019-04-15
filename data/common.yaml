@@ -1,6 +1,7 @@
 ---
 cachefilesd::package_name: cachefilesd
 cachefilesd::package_ensure: installed
+cachefilesd::manage_dir: true
 cachefilesd::dir: /var/cache/fscache
 cachefilesd::cache_tag: CacheFiles
 cachefilesd::brun: 10
