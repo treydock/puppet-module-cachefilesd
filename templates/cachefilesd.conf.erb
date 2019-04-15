@@ -1,0 +1,19 @@
+# File managed by Puppet, do not edit!
+dir <%= @dir %>
+<%- if @tag -%>
+tag <%= @tag %>
+<%- end -%>
+brun <%= @brun %>%
+bcull <%= @bcull %>%
+bstop <%= @bstop %>%
+frun <%= @frun %>%
+fcull <%= @fcull %>%
+fstop <%= @fstop %>%
+secctx <%= @secctx %>
+culltable <%= @culltable %>
+<%- if @nocull %>
+nocull
+<%- end %>
+<%- if @resume_thresholds -%>
+resume_thresholds <%= @resume_thresholds %>
+<%- end -%>
