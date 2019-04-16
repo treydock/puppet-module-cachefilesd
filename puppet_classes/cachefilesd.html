@@ -585,9 +585,7 @@
 132
 133
 134
-135
-136
-137</pre>
+135</pre>
       </td>
       <td>
         <pre class="code"><span class="info file"># File 'manifests/init.pp', line 52</span>
@@ -661,8 +659,6 @@ class cachefilesd (
       group   =&gt; &#39;root&#39;,
       mode    =&gt; &#39;0644&#39;,
       content =&gt; template(&#39;cachefilesd/cachefilesd.conf.erb&#39;),
-      require =&gt; Package[&#39;cachefilesd&#39;],
-      notify  =&gt; Service[&#39;cachefilesd&#39;],
     }
     if $manage_service {
       File[&#39;cachefilesd.conf&#39;] ~&gt; Service[&#39;cachefilesd&#39;]
