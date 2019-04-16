@@ -245,7 +245,7 @@
         <span class='name'>brun</span>
       
       
-        <span class='type'>(<tt>Integer[0,100]</tt>)</span>
+        <span class='type'>(<tt>Integer[0,99]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>10</tt>)</em>
@@ -263,7 +263,7 @@
         <span class='name'>bcull</span>
       
       
-        <span class='type'>(<tt>Integer[0,100]</tt>)</span>
+        <span class='type'>(<tt>Integer[0,99]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>7</tt>)</em>
@@ -281,7 +281,7 @@
         <span class='name'>bstop</span>
       
       
-        <span class='type'>(<tt>Integer[0,100]</tt>)</span>
+        <span class='type'>(<tt>Integer[0,99]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>3</tt>)</em>
@@ -299,7 +299,7 @@
         <span class='name'>frun</span>
       
       
-        <span class='type'>(<tt>Integer[0,100]</tt>)</span>
+        <span class='type'>(<tt>Integer[0,99]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>10</tt>)</em>
@@ -317,7 +317,7 @@
         <span class='name'>fcull</span>
       
       
-        <span class='type'>(<tt>Integer[0,100]</tt>)</span>
+        <span class='type'>(<tt>Integer[0,99]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>7</tt>)</em>
@@ -335,7 +335,7 @@
         <span class='name'>fstop</span>
       
       
-        <span class='type'>(<tt>Integer[0,100]</tt>)</span>
+        <span class='type'>(<tt>Integer[0,99]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>3</tt>)</em>
@@ -579,7 +579,15 @@
 126
 127
 128
-129</pre>
+129
+130
+131
+132
+133
+134
+135
+136
+137</pre>
       </td>
       <td>
         <pre class="code"><span class="info file"># File 'manifests/init.pp', line 52</span>
@@ -593,12 +601,12 @@ class cachefilesd (
   Boolean $manage_dir = true,
   Stdlib::Absolutepath $dir = &#39;/var/cache/fscache&#39;,
   Variant[String[1], Boolean] $cache_tag = &#39;CacheFiles&#39;,
-  Integer[0,100] $brun = 10,
-  Integer[0,100] $bcull = 7,
-  Integer[0,100] $bstop = 3,
-  Integer[0,100] $frun = 10,
-  Integer[0,100] $fcull = 7,
-  Integer[0,100] $fstop = 3,
+  Integer[0,99] $brun = 10,
+  Integer[0,99] $bcull = 7,
+  Integer[0,99] $bstop = 3,
+  Integer[0,99] $frun = 10,
+  Integer[0,99] $fcull = 7,
+  Integer[0,99] $fstop = 3,
   String[1] $secctx = &#39;system_u:system_r:cachefiles_kernel_t:s0&#39;,
   Integer[12,20] $culltable = 12,
   Boolean $nocull = false,
@@ -608,6 +616,14 @@ class cachefilesd (
   String[1] $service_ensure = &#39;running&#39;,
   Boolean $service_enable = true,
 ) {
+
+  if ! ($bstop &lt; $bcull and $bcull &lt; $brun ) {
+    fail(&quot;${module_name}: Requires bstop &lt; bcull &lt; brun&quot;)
+  }
+
+  if ! ($fstop &lt; $fcull and $fcull &lt; $frun ) {
+    fail(&quot;${module_name}: Requires fstop &lt; fcull &lt; frun&quot;)
+  }
 
   if $manage_package {
     package { &#39;cachefilesd&#39;:
