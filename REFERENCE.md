@@ -91,7 +91,7 @@ Default value: 'CacheFiles'
 
 ##### `brun`
 
-Data type: `Integer[0,100]`
+Data type: `Integer[0,99]`
 
 cachefilesd `brun` config option
 
@@ -99,7 +99,7 @@ Default value: 10
 
 ##### `bcull`
 
-Data type: `Integer[0,100]`
+Data type: `Integer[0,99]`
 
 cachefilesd `bcull` config option
 
@@ -107,7 +107,7 @@ Default value: 7
 
 ##### `bstop`
 
-Data type: `Integer[0,100]`
+Data type: `Integer[0,99]`
 
 cachefilesd `bstop` config option
 
@@ -115,7 +115,7 @@ Default value: 3
 
 ##### `frun`
 
-Data type: `Integer[0,100]`
+Data type: `Integer[0,99]`
 
 cachefilesd `frun` config option
 
@@ -123,7 +123,7 @@ Default value: 10
 
 ##### `fcull`
 
-Data type: `Integer[0,100]`
+Data type: `Integer[0,99]`
 
 cachefilesd `fcull` config option
 
@@ -131,7 +131,7 @@ Default value: 7
 
 ##### `fstop`
 
-Data type: `Integer[0,100]`
+Data type: `Integer[0,99]`
 
 cachefilesd `fstop` config option
 
