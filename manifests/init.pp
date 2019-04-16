@@ -118,8 +118,6 @@ class cachefilesd (
       group   => 'root',
       mode    => '0644',
       content => template('cachefilesd/cachefilesd.conf.erb'),
-      require => Package['cachefilesd'],
-      notify  => Service['cachefilesd'],
     }
     if $manage_service {
       File['cachefilesd.conf'] ~> Service['cachefilesd']
