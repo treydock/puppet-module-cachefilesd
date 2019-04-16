@@ -7,6 +7,40 @@ describe 'cachefilesd' do
 
       it { is_expected.to compile }
 
+      it do
+        is_expected.to contain_package('cachefilesd').with(
+          ensure: 'installed',
+          name: 'cachefilesd',
+        )
+      end
+
+      it { is_expected.to contain_package('cachefilesd').that_comes_before('File[/var/cache/fscache]') }
+      it { is_expected.to contain_package('cachefilesd').that_comes_before('File[cachefilesd.conf]') }
+      it { is_expected.to contain_package('cachefilesd').that_notifies('Service[cachefilesd]') }
+
+      it do
+        is_expected.to contain_file('/var/cache/fscache').with(
+          ensure: 'directory',
+          owner: 'root',
+          group: 'root',
+          mode: '0755',
+        )
+      end
+
+      it { is_expected.to contain_file('/var/cache/fscache').that_notifies('Service[cachefilesd]') }
+
+      it do
+        is_expected.to contain_file('cachefilesd.conf').with(
+          ensure: 'file',
+          path: '/etc/cachefilesd.conf',
+          owner: 'root',
+          group: 'root',
+          mode: '0644',
+        )
+      end
+
+      it { is_expected.to contain_file('cachefilesd.conf').that_notifies('Service[cachefilesd]') }
+
       it 'has valid cachefilesd.conf' do
         expected = [
           'dir /var/cache/fscache',
@@ -21,6 +55,14 @@ describe 'cachefilesd' do
           'culltable 12',
         ]
         verify_contents(catalogue, 'cachefilesd.conf', expected)
+      end
+
+      it do
+        is_expected.to contain_service('cachefilesd').with(
+          ensure: 'running',
+          enable: 'true',
+          name: 'cachefilesd',
+        )
       end
     end
   end
