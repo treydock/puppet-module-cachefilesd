@@ -58,12 +58,12 @@ class cachefilesd (
   Boolean $manage_dir = true,
   Stdlib::Absolutepath $dir = '/var/cache/fscache',
   Variant[String[1], Boolean] $cache_tag = 'CacheFiles',
-  Integer[0,100] $brun = 10,
-  Integer[0,100] $bcull = 7,
-  Integer[0,100] $bstop = 3,
-  Integer[0,100] $frun = 10,
-  Integer[0,100] $fcull = 7,
-  Integer[0,100] $fstop = 3,
+  Integer[0,99] $brun = 10,
+  Integer[0,99] $bcull = 7,
+  Integer[0,99] $bstop = 3,
+  Integer[0,99] $frun = 10,
+  Integer[0,99] $fcull = 7,
+  Integer[0,99] $fstop = 3,
   String[1] $secctx = 'system_u:system_r:cachefiles_kernel_t:s0',
   Integer[12,20] $culltable = 12,
   Boolean $nocull = false,
@@ -73,6 +73,14 @@ class cachefilesd (
   String[1] $service_ensure = 'running',
   Boolean $service_enable = true,
 ) {
+
+  if ! ($bstop < $bcull and $bcull < $brun ) {
+    fail("${module_name}: Requires bstop < bcull < brun")
+  }
+
+  if ! ($fstop < $fcull and $fcull < $frun ) {
+    fail("${module_name}: Requires fstop < fcull < frun")
+  }
 
   if $manage_package {
     package { 'cachefilesd':
