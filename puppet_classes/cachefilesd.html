@@ -479,7 +479,7 @@
         <span class='name'>service_enable</span>
       
       
-        <span class='type'>(<tt>Boolean</tt>)</span>
+        <span class='type'>(<tt>Variant[Boolean, Enum['UNSET']]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>true</tt>)</em>
@@ -585,7 +585,19 @@
 132
 133
 134
-135</pre>
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147</pre>
       </td>
       <td>
         <pre class="code"><span class="info file"># File 'manifests/init.pp', line 52</span>
@@ -612,7 +624,7 @@ class cachefilesd (
   Boolean $manage_service = true,
   String[1] $service_name = &#39;cachefilesd&#39;,
   String[1] $service_ensure = &#39;running&#39;,
-  Boolean $service_enable = true,
+  Variant[Boolean, Enum[&#39;UNSET&#39;]] $service_enable = true,
 ) {
 
   if ! ($bstop &lt; $bcull and $bcull &lt; $brun ) {
@@ -621,6 +633,18 @@ class cachefilesd (
 
   if ! ($fstop &lt; $fcull and $fcull &lt; $frun ) {
     fail(&quot;${module_name}: Requires fstop &lt; fcull &lt; frun&quot;)
+  }
+
+  if $service_ensure == &#39;UNSET&#39; {
+    $_service_ensure = undef
+  } else {
+    $_service_ensure = $service_ensure
+  }
+
+  if $service_enable == &#39;UNSET&#39; {
+    $_service_enable = undef
+  } else {
+    $_service_enable = $service_enable
   }
 
   if $manage_package {
@@ -667,8 +691,8 @@ class cachefilesd (
 
   if $manage_service {
     service { &#39;cachefilesd&#39;:
-      ensure =&gt; $service_ensure,
-      enable =&gt; $service_enable,
+      ensure =&gt; $_service_ensure,
+      enable =&gt; $_service_enable,
       name   =&gt; $service_name,
     }
   }
