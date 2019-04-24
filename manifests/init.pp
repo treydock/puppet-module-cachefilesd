@@ -71,7 +71,7 @@ class cachefilesd (
   Boolean $manage_service = true,
   String[1] $service_name = 'cachefilesd',
   String[1] $service_ensure = 'running',
-  Boolean $service_enable = true,
+  Variant[Boolean, Enum['UNSET']] $service_enable = true,
 ) {
 
   if ! ($bstop < $bcull and $bcull < $brun ) {
@@ -80,6 +80,18 @@ class cachefilesd (
 
   if ! ($fstop < $fcull and $fcull < $frun ) {
     fail("${module_name}: Requires fstop < fcull < frun")
+  }
+
+  if $service_ensure == 'UNSET' {
+    $_service_ensure = undef
+  } else {
+    $_service_ensure = $service_ensure
+  }
+
+  if $service_enable == 'UNSET' {
+    $_service_enable = undef
+  } else {
+    $_service_enable = $service_enable
   }
 
   if $manage_package {
@@ -126,8 +138,8 @@ class cachefilesd (
 
   if $manage_service {
     service { 'cachefilesd':
-      ensure => $service_ensure,
-      enable => $service_enable,
+      ensure => $_service_ensure,
+      enable => $_service_enable,
       name   => $service_name,
     }
   }

@@ -64,6 +64,12 @@ describe 'cachefilesd' do
           name: 'cachefilesd',
         )
       end
+
+      context 'service_enable => UNSET' do
+        let(:params) { { service_enable: 'UNSET' } }
+
+        it { is_expected.to contain_service('cachefilesd').without_enable }
+      end
     end
   end
 end
