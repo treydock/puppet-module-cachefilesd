@@ -195,7 +195,7 @@ Default value: 'running'
 
 ##### `service_enable`
 
-Data type: `Boolean`
+Data type: `Variant[Boolean, Enum['UNSET']]`
 
 cachefilesd service enable property
 
