@@ -3,7 +3,13 @@
   deploy: false
   docker_sets:
     - set: centos-7
+      collection: puppet5
+    - set: centos-7
+      collection: puppet6
     - set: centos-6
+      collection: puppet5
+    - set: centos-6
+      collection: puppet6
 .gitlab-ci.yml:
   delete: true
 appveyor.yml:
