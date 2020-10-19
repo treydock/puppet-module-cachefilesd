@@ -111,11 +111,21 @@ class cachefilesd (
   }
 
   if $manage_dir {
+    $selentries = split($secctx, ':')
+    $seluser = $selentries[0]
+    $selrole = $selentries[1]
+    $seltype = $selentries[2]
+    $selrange = $selentries[3]
+
     file { $dir:
-      ensure => 'directory',
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0755',
+      ensure   => 'directory',
+      owner    => 'root',
+      group    => 'root',
+      mode     => '0755',
+      seluser  => $seluser,
+      selrole  => $selrole,
+      seltype  => $seltype,
+      selrange => $selrange,
     }
     if $manage_service {
       File[$dir] ~> Service['cachefilesd']
