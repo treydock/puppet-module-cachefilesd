@@ -6,15 +6,15 @@
 <title>
   Puppet Class: cachefilesd
   
-    &mdash; Documentation by YARD 0.9.19
+    &mdash; Documentation by YARD 0.9.25
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "puppet_classes::cachefilesd";
   relpath = '../';
 </script>
@@ -495,6 +495,7 @@
 </ul>
 
 
+
 </div><div class="method_details_list">
   <table class="source_code">
     <tr>
@@ -597,7 +598,17 @@
 144
 145
 146
-147</pre>
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157</pre>
       </td>
       <td>
         <pre class="code"><span class="info file"># File 'manifests/init.pp', line 52</span>
@@ -664,11 +675,21 @@ class cachefilesd (
   }
 
   if $manage_dir {
+    $selentries = split($secctx, &#39;:&#39;)
+    $seluser = $selentries[0]
+    $selrole = $selentries[1]
+    $seltype = $selentries[2]
+    $selrange = $selentries[3]
+
     file { $dir:
-      ensure =&gt; &#39;directory&#39;,
-      owner  =&gt; &#39;root&#39;,
-      group  =&gt; &#39;root&#39;,
-      mode   =&gt; &#39;0755&#39;,
+      ensure   =&gt; &#39;directory&#39;,
+      owner    =&gt; &#39;root&#39;,
+      group    =&gt; &#39;root&#39;,
+      mode     =&gt; &#39;0755&#39;,
+      seluser  =&gt; $seluser,
+      selrole  =&gt; $selrole,
+      seltype  =&gt; $seltype,
+      selrange =&gt; $selrange,
     }
     if $manage_service {
       File[$dir] ~&gt; Service[&#39;cachefilesd&#39;]
