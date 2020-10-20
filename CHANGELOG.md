@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.3.0](https://github.com/treydock/puppet-module-cachefilesd/tree/v0.3.0) (2020-10-20)
+
+[Full Changelog](https://github.com/treydock/puppet-module-cachefilesd/compare/0.2.0...v0.3.0)
+
+### Added
+
+- Add support for Debian and Ubuntu [\#11](https://github.com/treydock/puppet-module-cachefilesd/pull/11) ([treydock](https://github.com/treydock))
+- Support EL8 [\#10](https://github.com/treydock/puppet-module-cachefilesd/pull/10) ([treydock](https://github.com/treydock))
+- Also set selinux on cache directory [\#8](https://github.com/treydock/puppet-module-cachefilesd/pull/8) ([jcpunk](https://github.com/jcpunk))
+
 ## [0.2.0](https://github.com/treydock/puppet-module-cachefilesd/tree/0.2.0) (2019-04-24)
 
 [Full Changelog](https://github.com/treydock/puppet-module-cachefilesd/compare/0.1.2...0.2.0)
