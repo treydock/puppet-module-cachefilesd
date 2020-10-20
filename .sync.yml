@@ -2,6 +2,10 @@
 .travis.yml:
   deploy: false
   docker_sets:
+    - set: centos-8
+      collection: puppet5
+    - set: centos-8
+      collection: puppet6
     - set: centos-7
       collection: puppet5
     - set: centos-7
