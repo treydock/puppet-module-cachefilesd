@@ -9,7 +9,7 @@ HOSTS:
     docker_cmd:
       - '/usr/sbin/init'
     docker_image_commands:
-      - 'yum install -y wget'
+      - 'yum install -y wget which cronie iproute initscripts'
     docker_container_name: 'cachefilesd-el7'
 CONFIG:
   log_level: debug

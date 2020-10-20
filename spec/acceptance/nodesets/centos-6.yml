@@ -9,7 +9,7 @@ HOSTS:
     docker_cmd:
       - '/sbin/init'
     docker_image_commands:
-      - 'yum install -y wget'
+      - 'yum install -y wget which cronie iproute'
     docker_container_name: 'cachefilesd-el6'
 CONFIG:
   log_level: debug
