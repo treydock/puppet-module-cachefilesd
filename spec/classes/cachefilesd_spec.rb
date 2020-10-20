@@ -24,6 +24,10 @@ describe 'cachefilesd' do
           owner: 'root',
           group: 'root',
           mode: '0755',
+          seluser: 'system_u',
+          selrole: 'system_r',
+          seltype: 'cachefiles_kernel_t',
+          selrange: 's0',
         )
       end
 
