@@ -5,7 +5,10 @@
       - centos-7
       - centos-8
       - debian-9
+      - debian-10
+      - ubuntu-1604
       - ubuntu-1804
+      - ubuntu-2004
     puppet:
       - puppet6
       - puppet7
@@ -15,5 +18,3 @@ appveyor.yml:
   delete: true
 Rakefile:
   changelog_project: puppet-module-cachefilesd
-spec/acceptance/nodesets/debian-10.yml:
-  delete: true
