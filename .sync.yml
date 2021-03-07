@@ -7,9 +7,8 @@
       - debian-9
       - ubuntu-1804
     puppet:
-      - puppet5
       - puppet6
-      - ---puppet7
+      - puppet7
 .gitlab-ci.yml:
   delete: true
 appveyor.yml:
