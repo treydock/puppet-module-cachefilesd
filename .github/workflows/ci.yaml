@@ -53,7 +53,7 @@ jobs:
           - "ubuntu-1804"
         puppet:
           - "puppet6"
-          - "puppet5"
+          - "puppet7"
     env:
       BUNDLE_WITHOUT: development:release
       BEAKER_debug: true
