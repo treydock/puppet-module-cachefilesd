@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.25
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -62,23 +62,18 @@
 
 <p><a href="https://forge.puppetlabs.com/treydock/cachefilesd"><img
 src="http://img.shields.io/puppetforge/v/treydock/cachefilesd.svg"></a> <a
-href="https://travis-ci.org/treydock/puppet-module-cachefilesd"><img
-src="https://travis-ci.org/treydock/puppet-module-cachefilesd.png"></a></p>
+href="https://github.com/treydock/puppet-module-cachefilesd/actions?query=workflow%3ACI"><img
+src="https://github.com/treydock/puppet-module-cachefilesd/workflows/CI/badge.svg?branch=master"></a></p>
 
 <h4 id="label-Table+of+Contents">Table of Contents</h4>
 <ol><li>
-<p><a href="#label-Description">Description</a></p>
+<p><a href="#description">Description</a></p>
 </li><li>
-<p><a href="#label-Usage">Usage - Configuration options and additional
+<p><a href="#usage">Usage - Configuration options and additional
 functionality</a></p>
-</li><li>
-<p><a href="#label-Limitations">Limitations - OS compatibility, etc.</a></p>
-</li><li>
-<p><a href="#label-Development">Development - Guide for contributing to the
-module</a></p>
-</li></ol>
 
 <h2 id="label-Description">Description</h2>
+</li></ol>
 
 <p>Manage resources for cachefilesd.</p>
 
@@ -86,37 +81,13 @@ module</a></p>
 
 <p>To manage cachefilesd</p>
 
-<pre class="code ruby"><code class="ruby">include ::cachefilesd
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_include'>include</span> <span class='id identifier rubyid_cachefilesd'>cachefilesd</span>
 </code></pre>
 
 <h2 id="label-Reference">Reference</h2>
 
 <p><a
 href="http://treydock.github.io/puppet-module-cachefilesd/">treydock.github.io/puppet-module-cachefilesd/</a></p>
-
-<h2 id="label-Limitations">Limitations</h2>
-
-<p>Only tested on RHEL 6 and RHEL 7.</p>
-
-<h2 id="label-Development">Development</h2>
-
-<p>This module uses PDK for testing.</p>
-
-<h2 id="label-Release+Process">Release Process</h2>
-<ol><li>
-<p>Update metadata.json version</p>
-</li><li>
-<p>Generate REFERENCE.md: <code>bundle exec rake
-strings:generate:reference</code></p>
-</li><li>
-<p>Update CHANGELOG.md: <code>bundle exec rake changelog</code></p>
-</li><li>
-<p>Commit changes, eg <code>git commit -a -m &quot;Release 0.1.0&quot;</code></p>
-</li><li>
-<p>Tag, eg: <code>git tag 0.1.0</code></p>
-</li><li>
-<p>Update GitHub pages: <code>bundle exec rake strings:gh_pages:update</code></p>
-</li></ol>
 </div></div>
 
       <div id="footer">

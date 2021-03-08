@@ -6,7 +6,7 @@
 <title>
   Puppet Class: cachefilesd
   
-    &mdash; Documentation by YARD 0.9.25
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -95,6 +95,25 @@
   </div>
 <p class="tag_title">Parameters:</p>
 <ul class="param">
+  
+    <li>
+      
+        <span class='name'>manage_repo</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Boolean that determines if managing package repo. Only used by Debian 10 at
+this time</p>
+</div>
+      
+    </li>
   
     <li>
       
@@ -503,9 +522,6 @@
         <pre class="lines">
 
 
-52
-53
-54
 55
 56
 57
@@ -608,12 +624,24 @@
 154
 155
 156
-157</pre>
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168</pre>
       </td>
       <td>
-        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 52</span>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 55</span>
 
 class cachefilesd (
+  Boolean $manage_repo = true,
   Boolean $manage_package = true,
   String[1] $package_name = &#39;cachefilesd&#39;,
   String[1] $package_ensure = &#39;installed&#39;,
@@ -656,6 +684,13 @@ class cachefilesd (
     $_service_enable = undef
   } else {
     $_service_enable = $service_enable
+  }
+
+  if $manage_repo and $facts[&#39;os&#39;][&#39;name&#39;] == &#39;Debian&#39; and versioncmp($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;], &#39;10&#39;) == 0 {
+    include apt::backports
+    if $manage_package {
+      Class[&#39;apt::backports&#39;] -&gt; Package[&#39;cachefilesd&#39;]
+    }
   }
 
   if $manage_package {
