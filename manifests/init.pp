@@ -5,6 +5,9 @@
 # @example
 #   include cachefilesd
 #
+# @param manage_repo
+#   Boolean that determines if managing package repo.
+#   Only used by Debian 10 at this time
 # @param manage_package
 #   Boolean that determines if package resource is managed.
 # @param package_name
@@ -50,6 +53,7 @@
 # @param service_enable
 #   cachefilesd service enable property
 class cachefilesd (
+  Boolean $manage_repo = true,
   Boolean $manage_package = true,
   String[1] $package_name = 'cachefilesd',
   String[1] $package_ensure = 'installed',
@@ -92,6 +96,13 @@ class cachefilesd (
     $_service_enable = undef
   } else {
     $_service_enable = $service_enable
+  }
+
+  if $manage_repo and $facts['os']['name'] == 'Debian' and versioncmp($facts['os']['release']['major'], '10') == 0 {
+    include apt::backports
+    if $manage_package {
+      Class['apt::backports'] -> Package['cachefilesd']
+    }
   }
 
   if $manage_package {
