@@ -1,4 +1,5 @@
 ---
+cachefilesd::manage_repo: true
 cachefilesd::manage_package: true
 cachefilesd::package_name: cachefilesd
 cachefilesd::package_ensure: installed

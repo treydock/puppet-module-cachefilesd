@@ -4,7 +4,9 @@
 ---
 fixtures:
   repositories:
-      stdlib:
-        repo: https://github.com/puppetlabs/puppetlabs-stdlib.git
+    stdlib:
+      repo: https://github.com/puppetlabs/puppetlabs-stdlib.git
+    apt:
+      repo: https://github.com/puppetlabs/puppetlabs-apt.git
   symlinks:
     cachefilesd: "#{source_dir}"
