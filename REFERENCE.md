@@ -177,7 +177,7 @@ Data type: `String[1]`
 
 cachefilesd `secctx` config option
 
-Default value: `'system_u:system_r:cachefiles_kernel_t:s0'`
+Default value: `'system_u:object_r:cachefiles_var_t:s0'`
 
 ##### <a name="culltable"></a>`culltable`
 
