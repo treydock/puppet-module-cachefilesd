@@ -121,6 +121,23 @@ class cachefilesd (
     }
   }
 
+  if $facts['os']['family'] == 'Debian' {
+    file_line { 'cachefilesd-RUN':
+      ensure => 'present',
+      path   => '/etc/default/cachefilesd',
+      line   => 'RUN=yes',
+      match  => '^RUN=',
+      after  => '^#RUN=.*',
+    }
+
+    if $manage_package {
+      Package['cachefilesd'] -> File_line['cachefilesd-RUN']
+    }
+    if $manage_service {
+      File_line['cachefilesd-RUN'] ~> Service['cachefilesd']
+    }
+  }
+
   if $manage_dir {
     $selentries = split($secctx, ':')
     $seluser = $selentries[0]
