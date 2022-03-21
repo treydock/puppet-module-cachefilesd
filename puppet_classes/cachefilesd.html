@@ -375,7 +375,7 @@ this time</p>
         <span class='type'>(<tt>String[1]</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>&#39;system_u:system_r:cachefiles_kernel_t:s0&#39;</tt>)</em>
+        <em class="default">(defaults to: <tt>&#39;system_u:object_r:cachefiles_var_t:s0&#39;</tt>)</em>
       
       
         &mdash;
@@ -673,7 +673,7 @@ class cachefilesd (
   Integer[0,99] $frun = 10,
   Integer[0,99] $fcull = 7,
   Integer[0,99] $fstop = 3,
-  String[1] $secctx = &#39;system_u:system_r:cachefiles_kernel_t:s0&#39;,
+  String[1] $secctx = &#39;system_u:object_r:cachefiles_var_t:s0&#39;,
   Integer[12,20] $culltable = 12,
   Boolean $nocull = false,
   Optional[String[1]] $resume_thresholds = undef,
