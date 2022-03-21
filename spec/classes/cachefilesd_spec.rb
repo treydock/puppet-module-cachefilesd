@@ -25,8 +25,8 @@ describe 'cachefilesd' do
           group: 'root',
           mode: '0755',
           seluser: 'system_u',
-          selrole: 'system_r',
-          seltype: 'cachefiles_kernel_t',
+          selrole: 'object_r',
+          seltype: 'cachefiles_var_t',
           selrange: 's0',
         )
       end
@@ -55,7 +55,7 @@ describe 'cachefilesd' do
           'frun 10%',
           'fcull 7%',
           'fstop 3%',
-          'secctx system_u:system_r:cachefiles_kernel_t:s0',
+          'secctx system_u:object_r:cachefiles_var_t:s0',
           'culltable 12',
         ]
         verify_contents(catalogue, 'cachefilesd.conf', expected)
