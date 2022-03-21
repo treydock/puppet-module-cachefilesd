@@ -6,7 +6,7 @@
 <title>
   Puppet Class: cachefilesd
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -635,7 +635,24 @@ this time</p>
 165
 166
 167
-168</pre>
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185</pre>
       </td>
       <td>
         <pre class="code"><span class="info file"># File 'manifests/init.pp', line 55</span>
@@ -706,6 +723,23 @@ class cachefilesd (
     }
     if $manage_service {
       Package[&#39;cachefilesd&#39;] ~&gt; Service[&#39;cachefilesd&#39;]
+    }
+  }
+
+  if $facts[&#39;os&#39;][&#39;family&#39;] == &#39;Debian&#39; {
+    file_line { &#39;cachefilesd-RUN&#39;:
+      ensure =&gt; &#39;present&#39;,
+      path   =&gt; &#39;/etc/default/cachefilesd&#39;,
+      line   =&gt; &#39;RUN=yes&#39;,
+      match  =&gt; &#39;^RUN=&#39;,
+      after  =&gt; &#39;^#RUN=.*&#39;,
+    }
+
+    if $manage_package {
+      Package[&#39;cachefilesd&#39;] -&gt; File_line[&#39;cachefilesd-RUN&#39;]
+    }
+    if $manage_service {
+      File_line[&#39;cachefilesd-RUN&#39;] ~&gt; Service[&#39;cachefilesd&#39;]
     }
   }
 
