@@ -21,7 +21,12 @@
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "7",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Rocky",
+      "operatingsystemrelease": [
         "8"
       ]
     },
@@ -49,7 +54,6 @@
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "16.04",
         "18.04",
         "20.04"
       ]
@@ -61,7 +65,7 @@
       "version_requirement": ">= 6.0.0 < 8.0.0"
     }
   ],
-  "pdk-version": "1.17.0",
+  "pdk-version": "2.1.0",
   "template-url": "https://github.com/treydock/pdk-templates.git#master",
-  "template-ref": "heads/master-0-gc21ae9d"
+  "template-ref": "heads/master-0-g3b13f94"
 }
