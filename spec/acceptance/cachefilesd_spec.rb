@@ -27,6 +27,11 @@ describe 'cachefilesd class:' do
       its(:content) { is_expected.to match %r{dir /var/cache/fscache} }
     end
 
+    describe file('/etc/default/cachefilesd'), if: fact('os.family') == 'Debian' do
+      it { is_expected.to be_file }
+      its(:content) { is_expected.to match %r{RUN=yes} }
+    end
+
     describe service('cachefilesd') do
       it { is_expected.to be_enabled }
       it { is_expected.not_to be_running }
