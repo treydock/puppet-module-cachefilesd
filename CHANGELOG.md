@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v2.0.0](https://github.com/treydock/puppet-module-cachefilesd/tree/v2.0.0) (2022-03-21)
+
+[Full Changelog](https://github.com/treydock/puppet-module-cachefilesd/compare/v1.0.0...v2.0.0)
+
+### Changed
+
+- Drop CentOS 8, drop Ubuntu 16.04, add Rocky 8 support [\#18](https://github.com/treydock/puppet-module-cachefilesd/pull/18) ([treydock](https://github.com/treydock))
+
+### Added
+
+- Update stdlib dependency range [\#19](https://github.com/treydock/puppet-module-cachefilesd/pull/19) ([treydock](https://github.com/treydock))
+
+### Fixed
+
+- Ensure Debian based systems can run the cachefilesd daemon [\#20](https://github.com/treydock/puppet-module-cachefilesd/pull/20) ([treydock](https://github.com/treydock))
+
 ## [v1.0.0](https://github.com/treydock/puppet-module-cachefilesd/tree/v1.0.0) (2021-03-08)
 
 [Full Changelog](https://github.com/treydock/puppet-module-cachefilesd/compare/v0.3.0...v1.0.0)
