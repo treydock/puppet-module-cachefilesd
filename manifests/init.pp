@@ -68,7 +68,7 @@ class cachefilesd (
   Integer[0,99] $frun = 10,
   Integer[0,99] $fcull = 7,
   Integer[0,99] $fstop = 3,
-  String[1] $secctx = 'system_u:system_r:cachefiles_kernel_t:s0',
+  String[1] $secctx = 'system_u:object_r:cachefiles_var_t:s0',
   Integer[12,20] $culltable = 12,
   Boolean $nocull = false,
   Optional[String[1]] $resume_thresholds = undef,
