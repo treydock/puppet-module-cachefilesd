@@ -33,6 +33,7 @@ The following parameters are available in the `cachefilesd` class:
 * [`manage_config`](#manage_config)
 * [`config_path`](#config_path)
 * [`manage_dir`](#manage_dir)
+* [`filesecctx`](#filesecctx)
 * [`dir`](#dir)
 * [`cache_tag`](#cache_tag)
 * [`brun`](#brun)
@@ -106,6 +107,14 @@ Data type: `Boolean`
 Booleans that determines if `dir` resource is managed.
 
 Default value: ``true``
+
+##### <a name="filesecctx"></a>`filesecctx`
+
+Data type: `String[1]`
+
+SELinux security context for the `dir` resource
+
+Default value: ``system_u:object_r:cachefiles_var_t:s0``
 
 ##### <a name="dir"></a>`dir`
 
