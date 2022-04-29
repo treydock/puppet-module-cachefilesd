@@ -14,7 +14,8 @@ cachefilesd::bstop: 3
 cachefilesd::frun: 10
 cachefilesd::fcull: 7
 cachefilesd::fstop: 3
-cachefilesd::secctx: system_u:object_r:cachefiles_var_t:s0
+cachefilesd::secctx: system_u:system_r:cachefiles_kernel_t:s0
+cachefilesd::filesecctx: system_u:object_r:cachefiles_var_t:s0
 cachefilesd::culltable: 12
 cachefilesd::nocull: false
 # cachefilesd::resume_thresholds

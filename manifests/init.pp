@@ -20,6 +20,8 @@
 #   Path to cachefilesd.conf
 # @param manage_dir
 #   Booleans that determines if `dir` resource is managed.
+# @param filesecctx
+#   SELinux security context for the `dir` resource
 # @param dir
 #   cachefilesd `dir` config option
 # @param cache_tag
@@ -60,6 +62,7 @@ class cachefilesd (
   Boolean $manage_config = true,
   Stdlib::Absolutepath $config_path = '/etc/cachefilesd.conf',
   Boolean $manage_dir = true,
+  String[1] $filesecctx = 'system_u:object_r:cachefiles_var_t:s0',
   Stdlib::Absolutepath $dir = '/var/cache/fscache',
   Variant[String[1], Boolean] $cache_tag = 'CacheFiles',
   Integer[0,99] $brun = 10,
@@ -68,7 +71,7 @@ class cachefilesd (
   Integer[0,99] $frun = 10,
   Integer[0,99] $fcull = 7,
   Integer[0,99] $fstop = 3,
-  String[1] $secctx = 'system_u:object_r:cachefiles_var_t:s0',
+  String[1] $secctx = 'system_u:system_r:cachefiles_kernel_t:s0',
   Integer[12,20] $culltable = 12,
   Boolean $nocull = false,
   Optional[String[1]] $resume_thresholds = undef,
@@ -139,7 +142,7 @@ class cachefilesd (
   }
 
   if $manage_dir {
-    $selentries = split($secctx, ':')
+    $selentries = split($filesecctx, ':')
     $seluser = $selentries[0]
     $selrole = $selentries[1]
     $seltype = $selentries[2]
