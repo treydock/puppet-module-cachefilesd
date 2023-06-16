@@ -26,49 +26,49 @@ include cachefilesd
 
 The following parameters are available in the `cachefilesd` class:
 
-* [`manage_repo`](#manage_repo)
-* [`manage_package`](#manage_package)
-* [`package_name`](#package_name)
-* [`package_ensure`](#package_ensure)
-* [`manage_config`](#manage_config)
-* [`config_path`](#config_path)
-* [`manage_dir`](#manage_dir)
-* [`filesecctx`](#filesecctx)
-* [`dir`](#dir)
-* [`cache_tag`](#cache_tag)
-* [`brun`](#brun)
-* [`bcull`](#bcull)
-* [`bstop`](#bstop)
-* [`frun`](#frun)
-* [`fcull`](#fcull)
-* [`fstop`](#fstop)
-* [`secctx`](#secctx)
-* [`culltable`](#culltable)
-* [`nocull`](#nocull)
-* [`resume_thresholds`](#resume_thresholds)
-* [`manage_service`](#manage_service)
-* [`service_name`](#service_name)
-* [`service_ensure`](#service_ensure)
-* [`service_enable`](#service_enable)
+* [`manage_repo`](#-cachefilesd--manage_repo)
+* [`manage_package`](#-cachefilesd--manage_package)
+* [`package_name`](#-cachefilesd--package_name)
+* [`package_ensure`](#-cachefilesd--package_ensure)
+* [`manage_config`](#-cachefilesd--manage_config)
+* [`config_path`](#-cachefilesd--config_path)
+* [`manage_dir`](#-cachefilesd--manage_dir)
+* [`filesecctx`](#-cachefilesd--filesecctx)
+* [`dir`](#-cachefilesd--dir)
+* [`cache_tag`](#-cachefilesd--cache_tag)
+* [`brun`](#-cachefilesd--brun)
+* [`bcull`](#-cachefilesd--bcull)
+* [`bstop`](#-cachefilesd--bstop)
+* [`frun`](#-cachefilesd--frun)
+* [`fcull`](#-cachefilesd--fcull)
+* [`fstop`](#-cachefilesd--fstop)
+* [`secctx`](#-cachefilesd--secctx)
+* [`culltable`](#-cachefilesd--culltable)
+* [`nocull`](#-cachefilesd--nocull)
+* [`resume_thresholds`](#-cachefilesd--resume_thresholds)
+* [`manage_service`](#-cachefilesd--manage_service)
+* [`service_name`](#-cachefilesd--service_name)
+* [`service_ensure`](#-cachefilesd--service_ensure)
+* [`service_enable`](#-cachefilesd--service_enable)
 
-##### <a name="manage_repo"></a>`manage_repo`
+##### <a name="-cachefilesd--manage_repo"></a>`manage_repo`
 
 Data type: `Boolean`
 
 Boolean that determines if managing package repo.
 Only used by Debian 10 at this time
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="manage_package"></a>`manage_package`
+##### <a name="-cachefilesd--manage_package"></a>`manage_package`
 
 Data type: `Boolean`
 
 Boolean that determines if package resource is managed.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="package_name"></a>`package_name`
+##### <a name="-cachefilesd--package_name"></a>`package_name`
 
 Data type: `String[1]`
 
@@ -76,7 +76,7 @@ Package name for cachefilesd
 
 Default value: `'cachefilesd'`
 
-##### <a name="package_ensure"></a>`package_ensure`
+##### <a name="-cachefilesd--package_ensure"></a>`package_ensure`
 
 Data type: `String[1]`
 
@@ -84,15 +84,15 @@ Package ensure property
 
 Default value: `'installed'`
 
-##### <a name="manage_config"></a>`manage_config`
+##### <a name="-cachefilesd--manage_config"></a>`manage_config`
 
 Data type: `Boolean`
 
 Boolean that determines if config is managed.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="config_path"></a>`config_path`
+##### <a name="-cachefilesd--config_path"></a>`config_path`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -100,15 +100,15 @@ Path to cachefilesd.conf
 
 Default value: `'/etc/cachefilesd.conf'`
 
-##### <a name="manage_dir"></a>`manage_dir`
+##### <a name="-cachefilesd--manage_dir"></a>`manage_dir`
 
 Data type: `Boolean`
 
 Booleans that determines if `dir` resource is managed.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="filesecctx"></a>`filesecctx`
+##### <a name="-cachefilesd--filesecctx"></a>`filesecctx`
 
 Data type: `String[1]`
 
@@ -116,7 +116,7 @@ SELinux security context for the `dir` resource
 
 Default value: `'system_u:object_r:cachefiles_var_t:s0'`
 
-##### <a name="dir"></a>`dir`
+##### <a name="-cachefilesd--dir"></a>`dir`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -124,7 +124,7 @@ cachefilesd `dir` config option
 
 Default value: `'/var/cache/fscache'`
 
-##### <a name="cache_tag"></a>`cache_tag`
+##### <a name="-cachefilesd--cache_tag"></a>`cache_tag`
 
 Data type: `Variant[String[1], Boolean]`
 
@@ -132,7 +132,7 @@ cachefilesd `tag` config option
 
 Default value: `'CacheFiles'`
 
-##### <a name="brun"></a>`brun`
+##### <a name="-cachefilesd--brun"></a>`brun`
 
 Data type: `Integer[0,99]`
 
@@ -140,7 +140,7 @@ cachefilesd `brun` config option
 
 Default value: `10`
 
-##### <a name="bcull"></a>`bcull`
+##### <a name="-cachefilesd--bcull"></a>`bcull`
 
 Data type: `Integer[0,99]`
 
@@ -148,7 +148,7 @@ cachefilesd `bcull` config option
 
 Default value: `7`
 
-##### <a name="bstop"></a>`bstop`
+##### <a name="-cachefilesd--bstop"></a>`bstop`
 
 Data type: `Integer[0,99]`
 
@@ -156,7 +156,7 @@ cachefilesd `bstop` config option
 
 Default value: `3`
 
-##### <a name="frun"></a>`frun`
+##### <a name="-cachefilesd--frun"></a>`frun`
 
 Data type: `Integer[0,99]`
 
@@ -164,7 +164,7 @@ cachefilesd `frun` config option
 
 Default value: `10`
 
-##### <a name="fcull"></a>`fcull`
+##### <a name="-cachefilesd--fcull"></a>`fcull`
 
 Data type: `Integer[0,99]`
 
@@ -172,7 +172,7 @@ cachefilesd `fcull` config option
 
 Default value: `7`
 
-##### <a name="fstop"></a>`fstop`
+##### <a name="-cachefilesd--fstop"></a>`fstop`
 
 Data type: `Integer[0,99]`
 
@@ -180,7 +180,7 @@ cachefilesd `fstop` config option
 
 Default value: `3`
 
-##### <a name="secctx"></a>`secctx`
+##### <a name="-cachefilesd--secctx"></a>`secctx`
 
 Data type: `String[1]`
 
@@ -188,7 +188,7 @@ cachefilesd `secctx` config option
 
 Default value: `'system_u:system_r:cachefiles_kernel_t:s0'`
 
-##### <a name="culltable"></a>`culltable`
+##### <a name="-cachefilesd--culltable"></a>`culltable`
 
 Data type: `Integer[12,20]`
 
@@ -196,31 +196,31 @@ cachefilesd `culltable` config option
 
 Default value: `12`
 
-##### <a name="nocull"></a>`nocull`
+##### <a name="-cachefilesd--nocull"></a>`nocull`
 
 Data type: `Boolean`
 
 cachefilesd `nocull` config option
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="resume_thresholds"></a>`resume_thresholds`
+##### <a name="-cachefilesd--resume_thresholds"></a>`resume_thresholds`
 
 Data type: `Optional[String[1]]`
 
 cachefilesd `resume_thresholds` config option
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="manage_service"></a>`manage_service`
+##### <a name="-cachefilesd--manage_service"></a>`manage_service`
 
 Data type: `Boolean`
 
 Boolean that determines if cachefilesd service is managed.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="service_name"></a>`service_name`
+##### <a name="-cachefilesd--service_name"></a>`service_name`
 
 Data type: `String[1]`
 
@@ -228,7 +228,7 @@ cachefilesd service name
 
 Default value: `'cachefilesd'`
 
-##### <a name="service_ensure"></a>`service_ensure`
+##### <a name="-cachefilesd--service_ensure"></a>`service_ensure`
 
 Data type: `String[1]`
 
@@ -236,11 +236,11 @@ cachefilesd service ensure property
 
 Default value: `'running'`
 
-##### <a name="service_enable"></a>`service_enable`
+##### <a name="-cachefilesd--service_enable"></a>`service_enable`
 
 Data type: `Variant[Boolean, Enum['UNSET']]`
 
 cachefilesd service enable property
 
-Default value: ``true``
+Default value: `true`
 
