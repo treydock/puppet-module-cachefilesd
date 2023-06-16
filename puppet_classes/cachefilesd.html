@@ -6,7 +6,7 @@
 <title>
   Puppet Class: cachefilesd
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -84,6 +84,7 @@
 </div>
 
 
+
 <div class="tags">
   
   <div class="examples">
@@ -109,8 +110,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Boolean that determines if managing package repo. Only used by Debian 10 at
-this time</p>
+<p>Boolean that determines if managing package repo. Only used by Debian 10 at this time</p>
 </div>
       
     </li>
@@ -219,6 +219,24 @@ this time</p>
         &mdash;
         <div class='inline'>
 <p>Booleans that determines if <code>dir</code> resource is managed.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>filesecctx</span>
+      
+      
+        <span class='type'>(<tt>String[1]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;system_u:object_r:cachefiles_var_t:s0&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>SELinux security context for the <code>dir</code> resource</p>
 </div>
       
     </li>
@@ -375,7 +393,7 @@ this time</p>
         <span class='type'>(<tt>String[1]</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>&#39;system_u:object_r:cachefiles_var_t:s0&#39;</tt>)</em>
+        <em class="default">(defaults to: <tt>&#39;system_u:system_r:cachefiles_kernel_t:s0&#39;</tt>)</em>
       
       
         &mdash;
@@ -522,8 +540,6 @@ this time</p>
         <pre class="lines">
 
 
-55
-56
 57
 58
 59
@@ -652,10 +668,11 @@ this time</p>
 182
 183
 184
-185</pre>
+185
+186</pre>
       </td>
       <td>
-        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 55</span>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 57</span>
 
 class cachefilesd (
   Boolean $manage_repo = true,
@@ -665,6 +682,7 @@ class cachefilesd (
   Boolean $manage_config = true,
   Stdlib::Absolutepath $config_path = &#39;/etc/cachefilesd.conf&#39;,
   Boolean $manage_dir = true,
+  String[1] $filesecctx = &#39;system_u:object_r:cachefiles_var_t:s0&#39;,
   Stdlib::Absolutepath $dir = &#39;/var/cache/fscache&#39;,
   Variant[String[1], Boolean] $cache_tag = &#39;CacheFiles&#39;,
   Integer[0,99] $brun = 10,
@@ -673,7 +691,7 @@ class cachefilesd (
   Integer[0,99] $frun = 10,
   Integer[0,99] $fcull = 7,
   Integer[0,99] $fstop = 3,
-  String[1] $secctx = &#39;system_u:object_r:cachefiles_var_t:s0&#39;,
+  String[1] $secctx = &#39;system_u:system_r:cachefiles_kernel_t:s0&#39;,
   Integer[12,20] $culltable = 12,
   Boolean $nocull = false,
   Optional[String[1]] $resume_thresholds = undef,
@@ -682,7 +700,6 @@ class cachefilesd (
   String[1] $service_ensure = &#39;running&#39;,
   Variant[Boolean, Enum[&#39;UNSET&#39;]] $service_enable = true,
 ) {
-
   if ! ($bstop &lt; $bcull and $bcull &lt; $brun ) {
     fail(&quot;${module_name}: Requires bstop &lt; bcull &lt; brun&quot;)
   }
@@ -744,7 +761,7 @@ class cachefilesd (
   }
 
   if $manage_dir {
-    $selentries = split($secctx, &#39;:&#39;)
+    $selentries = split($filesecctx, &#39;:&#39;)
     $seluser = $selentries[0]
     $selrole = $selentries[1]
     $seltype = $selentries[2]
@@ -786,7 +803,6 @@ class cachefilesd (
       name   =&gt; $service_name,
     }
   }
-
 }</pre>
       </td>
     </tr>
