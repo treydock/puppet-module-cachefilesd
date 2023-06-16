@@ -80,7 +80,6 @@ class cachefilesd (
   String[1] $service_ensure = 'running',
   Variant[Boolean, Enum['UNSET']] $service_enable = true,
 ) {
-
   if ! ($bstop < $bcull and $bcull < $brun ) {
     fail("${module_name}: Requires bstop < bcull < brun")
   }
@@ -184,5 +183,4 @@ class cachefilesd (
       name   => $service_name,
     }
   }
-
 }

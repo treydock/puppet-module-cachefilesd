@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'cachefilesd' do
@@ -56,7 +58,7 @@ describe 'cachefilesd' do
           'fcull 7%',
           'fstop 3%',
           'secctx system_u:system_r:cachefiles_kernel_t:s0',
-          'culltable 12',
+          'culltable 12'
         ]
         verify_contents(catalogue, 'cachefilesd.conf', expected)
       end
@@ -69,7 +71,7 @@ describe 'cachefilesd' do
         )
       end
 
-      context 'service_enable => UNSET' do
+      context 'when service_enable => UNSET' do
         let(:params) { { service_enable: 'UNSET' } }
 
         it { is_expected.to contain_service('cachefilesd').without_enable }

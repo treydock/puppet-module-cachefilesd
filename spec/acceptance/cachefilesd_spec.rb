@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require 'spec_helper_acceptance'
 
 describe 'cachefilesd class:' do
-  context 'default parameters' do
+  context 'with default parameters' do
     it 'runs successfully' do
-      pp = <<-EOS
+      pp = <<-PP
       class { 'cachefilesd':
         # Docker can not run cachefilesd
         service_ensure => 'stopped',
       }
-      EOS
+      PP
 
       apply_manifest(pp, catch_failures: true)
       apply_manifest(pp, catch_changes: true)
